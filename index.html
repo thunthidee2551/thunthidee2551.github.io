@@ -14,7 +14,37 @@
         <h1>สวัสดี! ดิฉันคือ Thuthidee</h1>
         <p>นี่คือผลงานและความภาคภูมิใจของฉัน</p>
     </header>
+<section>
+    <h2>รูปภาพของฉัน</h2>
 
+    <!-- ปุ่มเลือกรูป -->
+    <input type="file" id="imageUpload" accept="image/*">
+
+    <br><br>
+
+    <!-- แสดงรูป -->
+    <img id="preview" src="" alt="รูปตัวอย่าง" style="max-width:300px; display:none; border-radius:10px;">
+</section>
+
+<script>
+const imageUpload = document.getElementById('imageUpload');
+const preview = document.getElementById('preview');
+
+imageUpload.addEventListener('change', function() {
+    const file = this.files[0];
+
+    if (file) {
+        const reader = new FileReader();
+
+        reader.addEventListener('load', function() {
+            preview.src = this.result;
+            preview.style.display = 'block';
+        });
+
+        reader.readAsDataURL(file);
+    }
+});
+</script>
     <!-- ส่วนเกี่ยวกับตัวเอง -->
     <section id="about">
         <h2>เกี่ยวกับฉัน</h2>
