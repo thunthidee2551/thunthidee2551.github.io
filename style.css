@@ -8,14 +8,13 @@ body {
     animation: bgMove 8s ease infinite;
     color: #333;
 }
-
+input[type="file"]{ padding:10px; background:#ff66a3; color:white; border:none; border-radius:8px; cursor:pointer; } #preview{ box-shadow:0 4px 10px rgba(0,0,0,0.2); }
 /* พื้นหลังเคลื่อนไหว */
 @keyframes bgMove {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
-
 header {
     background: linear-gradient(90deg, #ff69b4, #ff1493);
     color: white;
