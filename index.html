@@ -1,63 +1,167 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="เว็บไซต์แสดงผลงานและทักษะของ Thunthidee">
-    <title>ความภาคภูมิใจของ THUNTHIDEE</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio | THUNTHIDEE</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Sarabun,sans-serif;
+}
+
+body{
+    background:#f8f8f8;
+}
+
+header{
+    background:#ff66a3;
+    color:white;
+    text-align:center;
+    padding:40px 20px;
+}
+
+.profile-img{
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid white;
+    margin-bottom:15px;
+}
+
+section{
+    background:white;
+    max-width:900px;
+    margin:20px auto;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 2px 10px rgba(0,0,0,.1);
+}
+
+h2{
+    color:#ff66a3;
+    margin-bottom:10px;
+}
+
+.project{
+    background:#fff0f6;
+    padding:15px;
+    border-left:5px solid #ff66a3;
+    margin-bottom:10px;
+}
+
+input[type=file]{
+    padding:10px;
+    background:#ff66a3;
+    color:white;
+    border:none;
+    border-radius:8px;
+}
+
+#preview{
+    max-width:300px;
+    margin-top:15px;
+    border-radius:10px;
+    display:none;
+}
+
+footer{
+    background:#333;
+    color:white;
+    text-align:center;
+    padding:15px;
+    margin-top:20px;
+}
+</style>
+
 </head>
 <body>
 
-    <!-- ส่วนหัวของเว็บ -->
-    <header>
-        <h1>สวัสดี! ดิฉันคือ Thuthidee</h1>
-        <p>นี่คือผลงานและความภาคภูมิใจของฉัน</p>
-    </header>
+<header>
+    <img src="https://via.placeholder.com/180"
+         alt="รูปโปรไฟล์"
+         class="profile-img"
+         id="preview">
+
+    <h1>สวัสดี! ดิฉันคือ THUNTHIDEE</h1>
+    <p>นี่คือผลงานและความภาคภูมิใจของฉัน</p>
+</header>
+
+<section>
+    <h2>เกี่ยวกับฉัน</h2>
+    <p>
+        ฉันเป็นนักเรียนโรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"
+        สายการเรียนภาษาต่างประเทศ สาขาภาษาอังกฤษ
+    </p>
+</section>
+
+<section>
+    <h2>อัปโหลดรูปโปรไฟล์</h2>
+
+    <input type="file" id="imageUpload" accept="image/*">
+
+    <br><br>
+
+    <img id="imagePreview" alt="รูปที่เลือก">
+</section>
+
+<section>
+    <h2>ผลงานของฉัน</h2>
+
+    <div class="project">
+        <h3>Portfolio Website</h3>
+        <p>เว็บไซต์สำหรับแนะนำตัวและรวบรวมผลงาน</p>
+    </div>
+
+    <div class="project">
+        <h3>Content Creator</h3>
+        <p>สร้างสรรค์คอนเทนต์บน TikTok และโซเชียลมีเดีย</p>
+    </div>
+</section>
+
+<section>
+    <h2>ทักษะของฉัน</h2>
+    <ul>
+        <li>การสร้างคอนเทนต์ TikTok</li>
+        <li>ภาษาอังกฤษเพื่อการสื่อสาร</li>
+        <li>การคิดสร้างสรรค์</li>
+        <li>การแต่งหน้า</li>
+    </ul>
+</section>
+
+<footer>
+    <p>ติดต่อ: thunthidee2551@gmail.com</p>
+    <p>&copy; <span id="year"></span> THUNTHIDEE</p>
+</footer>
+
+<script>
+document.getElementById("year").textContent =
+new Date().getFullYear();
+
+const upload = document.getElementById("imageUpload");
+const preview = document.getElementById("imagePreview");
+
+upload.addEventListener("change", function(){
+    const file = this.files[0];
+
+    if(file){
+        const reader = new FileReader();
+
+        reader.onload = function(e){
+            preview.src = e.target.result;
+            preview.style.display = "block";
+        }
+
+        reader.readAsDataURL(file);
+    }
+});
 </script>
-    <!-- ส่วนเกี่ยวกับตัวเอง -->
-    <section id="about">
-        <h2>เกี่ยวกับฉัน</h2>
-        <p>ฉันเป็นนักเรียนของโรงเรียนบ้านบึง"อุตสาหกรรมนุเคราะห์"สายการเรียน"ภาษาต่างประเทศ""สาขาภาษาอังกฤษ"</p>
-    </section>
-
-    <!-- ส่วนแสดงผลงาน -->
-    <section id="projects">
-        <h2>ผลงานของฉัน</h2>
-
-        <div class="project">
-            <h3>เว็บไซต์ Portfolio</h3>
-            <p>เว็บไซต์นี้เป็นหนึ่งในผลงานที่ผมสร้างขึ้นเพื่อแสดงความสามารถของฉัน</p>
-        </div>
-
-        <div class="project">
-            <h3>แอปพลิเคชันจัดการงาน</h3>
-            <p>แอปพลิเคชันที่ช่วยให้ผู้ใช้งานจัดการงานได้อย่างมีประสิทธิภาพ</p>
-        </div>
-    </section>
-
-    <!-- ส่วนแสดงทักษะ -->
-    <section id="skills">
-        <h2>ทักษะของฉัน</h2>
-        <ul>
-            <li>ดาวTIKTOK</li>
-            <li>ด่าคนภาษาโบราณ</li>
-            <li>คิดคอนเท้นเก่ง</li>
-            <li>การแต่งหน้า</li>
-        </ul>
-    </section>
-
-    <!-- ส่วนติดต่อและลิขสิทธิ์ -->
-    <footer>
-        <p>
-            ติดต่อผมได้ที่:
-            <a href="mailto:thunthidee2551@gmail.com">thunthidee2551@gmail.com</a>
-        </p>
-        <p>&copy; <span id="year"></span> THUNTHIDEE. All rights reserved.</p>
-    </footer>
-
-    <!-- ลิงก์ไปยัง JavaScript -->
-    <script src="script.js"></script>
 
 </body>
 </html>
+
+
